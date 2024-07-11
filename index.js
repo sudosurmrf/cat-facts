@@ -7,10 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const getFactRequest = await fetch(`https://catfact.ninja/fact?max_length=140`);
     const response = await getFactRequest.json();
     //console.log(response) 
-    
     const factList = document.getElementById(`listFacts`);
     const newFact = document.createElement('li');
-    newFact.textContent = response.fact;
+    if(Math.random()> .7) {
+      newFact.textContent = `${response.fact} - MEWOW! did you know that?`;
+      
+
+    } else {
+      newFact.textContent = response.fact;
+      
+    }
     factList.appendChild(newFact);
 
   });
